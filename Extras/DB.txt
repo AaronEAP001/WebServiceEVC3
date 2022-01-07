@@ -1,0 +1,92 @@
+create database if not exists db_cursos;
+
+use db_cursos;
+
+create table if not exists alumno(
+	idAlumno int not null auto_increment,
+    nombre varchar(200),
+    apellido varchar(255),
+    direccion varchar(255),
+    edaad int,
+    primary key(idAlumno)
+);
+
+create table if not exists curso(
+	idCurso int not null auto_increment,
+    nombre varchar(200),
+    aula varchar(5),
+    horas double,
+    primary key(idCurso)
+);
+
+create table if not exists alumno_curso(
+	idAlumnoCurso int not null auto_increment,
+    idAlumno int,
+    idCurso int,
+    primary key(idAlumnoCurso),
+    constraint foreign key(idAlumno)references alumno(idAlumno),
+    constraint foreign key(idCurso)references curso(idCurso)
+);
+
+create table if not exists resultado_busqueda(
+	idresultado_busqueda int not null auto_increment,
+    resultado varchar(5000) not null,
+    primary key(idresultado_busqueda)
+);
+
+
+
+
+insert into curso(nombre,aula,horas) value("Aritmetica","A1001",3.5);
+insert into curso(nombre,aula,horas) value("Letras","A1010",2.8);
+insert into curso(nombre,aula,horas) value("Programacion","LABP3",3.2);
+insert into curso(nombre,aula,horas) value("H. Perú","A1005",3.5);
+insert into curso(nombre,aula,horas) value("H. Universal","A1004",1.5);
+insert into curso(nombre,aula,horas) value("Algebra","A1007",4.0);
+insert into curso(nombre,aula,horas) value("Quimica","LAB02",2.5);
+
+
+
+insert into alumno(nombre,apellido,direccion,edaad) value("Fernanda","Gomez","Callao MzL lt5",15);
+insert into alumno(nombre,apellido,direccion,edaad) value("Aldo","Gomez","Callao MzL lt5",15);
+insert into alumno(nombre,apellido,direccion,edaad) value("Mario","ribera","Callao MzL lt15",15);
+insert into alumno(nombre,apellido,direccion,edaad) value("Juan","Gutti","Callao MzN lt2",16);
+insert into alumno(nombre,apellido,direccion,edaad) value("Ana","Diaz","Callao Mzb lt30",14);
+insert into alumno(nombre,apellido,direccion,edaad) value("Mafer","Casas","Callao Mze lt9",14);
+insert into alumno(nombre,apellido,direccion,edaad) value("Dennis","Taborez","Callao Mzt lt8",16);
+insert into alumno(nombre,apellido,direccion,edaad) value("Armando","Valencia","Callao MzH lt25",15);
+
+
+
+insert into alumno_curso(idAlumno,idCurso) value(1,2);
+insert into alumno_curso(idAlumno,idCurso) value(1,1);
+insert into alumno_curso(idAlumno,idCurso) value(1,7);
+insert into alumno_curso(idAlumno,idCurso) value(1,5);
+insert into alumno_curso(idAlumno,idCurso) value(2,2);
+insert into alumno_curso(idAlumno,idCurso) value(2,3);
+insert into alumno_curso(idAlumno,idCurso) value(2,5);
+insert into alumno_curso(idAlumno,idCurso) value(2,7);
+insert into alumno_curso(idAlumno,idCurso) value(3,1);
+insert into alumno_curso(idAlumno,idCurso) value(3,4);
+insert into alumno_curso(idAlumno,idCurso) value(3,6);
+insert into alumno_curso(idAlumno,idCurso) value(3,5);
+insert into alumno_curso(idAlumno,idCurso) value(4,2);
+insert into alumno_curso(idAlumno,idCurso) value(4,1);
+insert into alumno_curso(idAlumno,idCurso) value(4,7);
+insert into alumno_curso(idAlumno,idCurso) value(4,5);
+insert into alumno_curso(idAlumno,idCurso) value(5,2);
+insert into alumno_curso(idAlumno,idCurso) value(5,3);
+insert into alumno_curso(idAlumno,idCurso) value(5,4);
+insert into alumno_curso(idAlumno,idCurso) value(5,7);
+insert into alumno_curso(idAlumno,idCurso) value(6,1);
+insert into alumno_curso(idAlumno,idCurso) value(6,4);
+insert into alumno_curso(idAlumno,idCurso) value(6,6);
+insert into alumno_curso(idAlumno,idCurso) value(6,5);
+insert into alumno_curso(idAlumno,idCurso) value(7,2);
+insert into alumno_curso(idAlumno,idCurso) value(7,1);
+insert into alumno_curso(idAlumno,idCurso) value(7,6);
+insert into alumno_curso(idAlumno,idCurso) value(7,5);
+insert into alumno_curso(idAlumno,idCurso) value(8,2);
+insert into alumno_curso(idAlumno,idCurso) value(8,3);
+insert into alumno_curso(idAlumno,idCurso) value(8,4);
+insert into alumno_curso(idAlumno,idCurso) value(8,7);
